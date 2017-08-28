@@ -43,7 +43,7 @@ public class DictionaryProvider extends ContentProvider
 	public static final String DEFINITION_MIME_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE
 			+ "/vnd.example.android.searchabledict";
 
-	private DictionaryDatabase mDictionary;
+	private DicDBManager mDictionary;
 
 	// UriMatcher stuff
 	private static final int SEARCH_WORDS = 0;
@@ -82,7 +82,8 @@ public class DictionaryProvider extends ContentProvider
 	@Override
 	public boolean onCreate()
 	{
-		mDictionary = new DictionaryDatabase(getContext());
+		mDictionary = new DicDBManager(getContext());
+		mDictionary.loadDictionary();
 		return true;
 	}
 
@@ -130,8 +131,8 @@ public class DictionaryProvider extends ContentProvider
 		Log.e(TAG, "--> getSuggestions()");
 		
 		// query = query.toLowerCase();
-		String[] columns = new String[] { BaseColumns._ID, DictionaryOpenHelper.KEY_WORD,
-//				DictionaryOpenHelper.KEY_DEFINITION,
+		String[] columns = new String[] { BaseColumns._ID, DicOpenHelper.KEY_WORD,
+//				DicOpenHelper.KEY_DEFINITION,
 				/*
 				 * SearchManager.SUGGEST_COLUMN_SHORTCUT_ID, (only if you want
 				 * to refresh shortcuts)
@@ -147,8 +148,8 @@ public class DictionaryProvider extends ContentProvider
 		
 		query = query.toLowerCase();
 		String[] columns = new String[]
-		{ BaseColumns._ID, DictionaryOpenHelper.KEY_WORD,
-				DictionaryOpenHelper.KEY_DEFINITION };
+		{ BaseColumns._ID, DicOpenHelper.KEY_WORD,
+				DicOpenHelper.KEY_DEFINITION };
 
 		return mDictionary.getWordMatches(query, columns);
 	}
@@ -157,7 +158,7 @@ public class DictionaryProvider extends ContentProvider
 	{
 		String rowId = uri.getLastPathSegment();
 		String[] columns = new String[]
-		{ DictionaryOpenHelper.KEY_WORD, DictionaryOpenHelper.KEY_DEFINITION };
+		{ DicOpenHelper.KEY_WORD, DicOpenHelper.KEY_DEFINITION };
 
 		return mDictionary.getWord(rowId, columns);
 	}
@@ -178,8 +179,8 @@ public class DictionaryProvider extends ContentProvider
 		 */
 		String rowId = uri.getLastPathSegment();
 		String[] columns = new String[]
-		{ BaseColumns._ID, DictionaryOpenHelper.KEY_WORD,
-				DictionaryOpenHelper.KEY_DEFINITION,
+		{ BaseColumns._ID, DicOpenHelper.KEY_WORD,
+				DicOpenHelper.KEY_DEFINITION,
 				SearchManager.SUGGEST_COLUMN_SHORTCUT_ID,
 				SearchManager.SUGGEST_COLUMN_INTENT_DATA_ID };
 

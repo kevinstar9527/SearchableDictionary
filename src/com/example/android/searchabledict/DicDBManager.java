@@ -16,26 +16,42 @@
 
 package com.example.android.searchabledict;
 
-import java.util.HashMap;
-
 import android.app.SearchManager;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.provider.BaseColumns;
+import android.text.TextUtils;
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+
+import static com.example.android.searchabledict.DicOpenHelper.FTS_VIRTUAL_TABLE;
+import static com.example.android.searchabledict.DicOpenHelper.KEY_DEFINITION;
+import static com.example.android.searchabledict.DicOpenHelper.KEY_WORD;
 
 /**
  * Contains logic to return specific words from the dictionary, and load the
  * dictionary table when it needs to be created.
  */
-public class DictionaryDatabase
+public class DicDBManager
 {
 
-	private static final String TAG = DictionaryDatabase.class
-			.getCanonicalName();
+	private final DicOpenHelper mDatabaseOpenHelper;
 
-	private final DictionaryOpenHelper mDatabaseOpenHelper;
+
+	private  SQLiteDatabase mDatabase;
+
+	private static final String TAG = DicDBManager.class.getCanonicalName();
 	private static final HashMap<String, String> mColumnMap = buildColumnMap();
+	private Context mContext;
 
 	/**
 	 * Constructor
@@ -43,9 +59,11 @@ public class DictionaryDatabase
 	 * @param context
 	 *            The Context within which to work, used to create the DB
 	 */
-	public DictionaryDatabase(Context context)
+	public DicDBManager(Context context)
 	{
-		mDatabaseOpenHelper = new DictionaryOpenHelper(context);
+		mContext = context;
+		mDatabaseOpenHelper = new DicOpenHelper(context);
+		openDatabase();
 	}
 
 	/**
@@ -58,9 +76,8 @@ public class DictionaryDatabase
 	private static HashMap<String, String> buildColumnMap()
 	{
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put(DictionaryOpenHelper.KEY_WORD, DictionaryOpenHelper.KEY_WORD);
-		map.put(DictionaryOpenHelper.KEY_DEFINITION,
-				DictionaryOpenHelper.KEY_DEFINITION);
+		map.put(KEY_WORD, KEY_WORD);
+		map.put(KEY_DEFINITION, KEY_DEFINITION);
 		map.put(BaseColumns._ID, "rowid AS " + BaseColumns._ID);
 		map.put(SearchManager.SUGGEST_COLUMN_INTENT_DATA_ID, "rowid AS "
 				+ SearchManager.SUGGEST_COLUMN_INTENT_DATA_ID);
@@ -103,7 +120,7 @@ public class DictionaryDatabase
 	 */
 	public Cursor getWordMatches(String query, String[] columns)
 	{
-		String selection = DictionaryOpenHelper.KEY_WORD + " LIKE ?";
+		String selection = KEY_WORD + " LIKE ?";
 		String[] selectionArgs = new String[]
 		{ "%" + query + "%" };
 
@@ -147,7 +164,7 @@ public class DictionaryDatabase
 		 * column names
 		 */
 		SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
-		builder.setTables(DictionaryOpenHelper.FTS_VIRTUAL_TABLE);
+		builder.setTables(FTS_VIRTUAL_TABLE);
 		builder.setProjectionMap(mColumnMap);
 
 		Cursor cursor = builder.query(
@@ -164,6 +181,81 @@ public class DictionaryDatabase
 			return null;
 		}
 		return cursor;
+	}
+	/**
+	 * Starts a thread to load the database table with words
+	 */
+	public void loadDictionary()
+	{
+		new Thread(new Runnable()
+		{
+			public void run()
+			{
+				try
+				{
+					loadWords();
+				}
+				catch (IOException e)
+				{
+					throw new RuntimeException(e);
+				}
+			}
+		}).start();
+	}
+
+
+	private void loadWords() throws IOException
+	{
+		Log.d(TAG, "Loading words...");
+		final Resources resources = mContext.getResources();
+		InputStream inputStream = resources.openRawResource(R.raw.definitions);
+		BufferedReader reader = new BufferedReader(new InputStreamReader(
+				inputStream));
+
+		try
+		{
+			String line;
+			while ((line = reader.readLine()) != null)
+			{
+				String[] strings = TextUtils.split(line, "-");
+				if (strings.length < 2)
+					continue;
+				long id = addWord(strings[0].trim(), strings[1].trim());
+				if (id < 0)
+				{
+					Log.e(TAG, "unable to add word: " + strings[0].trim());
+				}
+			}
+			addWord("你好", "双方见面打招呼");
+		}
+		finally
+		{
+			reader.close();
+		}
+		Log.d(TAG, "DONE loading words.");
+	}
+
+	/**
+	 * Add a word to the dictionary.
+	 *
+	 * @return rowId or -1 if failed
+	 */
+	public long addWord(String word, String definition)
+	{
+		ContentValues initialValues = new ContentValues();
+		initialValues.put(KEY_WORD, word);
+		initialValues.put(KEY_DEFINITION, definition);
+
+		return mDatabase.insert(FTS_VIRTUAL_TABLE, null, initialValues);
+	}
+
+
+	public void openDatabase() {
+		mDatabase = mDatabaseOpenHelper.getWritableDatabase();
+	}
+
+	public void closeDatabase() {
+		mDatabase.close();
 	}
 
 }

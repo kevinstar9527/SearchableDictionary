@@ -59,7 +59,6 @@ public class SearchableDictionary extends Activity
 
         mTextView = (TextView) findViewById(R.id.text);
         mListView = (ListView) findViewById(R.id.list);
-
         handleIntent(getIntent());
     }
 
@@ -116,8 +115,8 @@ public class SearchableDictionary extends Activity
             mTextView.setText(countString);
 
             // Specify the columns we want to display in the result
-//            String[] from = new String[] { DictionaryOpenHelper.KEY_WORD, DictionaryOpenHelper.KEY_DEFINITION };
-            String[] from = new String[] { DictionaryOpenHelper.KEY_WORD};
+//            String[] from = new String[] { DicOpenHelper.KEY_WORD, DicOpenHelper.KEY_DEFINITION };
+            String[] from = new String[] { DicOpenHelper.KEY_WORD};
 
             // Specify the corresponding layout elements where we want the columns to go
 //            int[] to = new int[] { R.id.word, R.id.definition };
