@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.searchabledict;
+package com.example.android.searchabledict.custom_suggestions;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -36,6 +36,11 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+
+import com.example.android.searchabledict.DicDBManager;
+import com.example.android.searchabledict.DicOpenHelper;
+import com.example.android.searchabledict.DictionaryProvider;
+import com.example.android.searchabledict.R;
 
 /**
  * The main activity for the dictionary.
@@ -59,6 +64,8 @@ public class SearchableDictionary extends Activity
 
         mTextView = (TextView) findViewById(R.id.text);
         mListView = (ListView) findViewById(R.id.list);
+        DicDBManager dicDBManager = new DicDBManager(this);
+        dicDBManager.loadDictionary();
         handleIntent(getIntent());
     }
 

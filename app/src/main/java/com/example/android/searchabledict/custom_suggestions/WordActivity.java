@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.example.android.searchabledict;
+package com.example.android.searchabledict.custom_suggestions;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +31,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.TextView;
+
+import com.example.android.searchabledict.DicOpenHelper;
+import com.example.android.searchabledict.R;
 
 /**
  * Displays a word and its definition.
