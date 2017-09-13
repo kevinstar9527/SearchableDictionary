@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\SearchableDictionary\\app\\build\\intermediates\\res\\merged\\debug\\xml\\searchable_recent.xml",
+        "source": "E:\\SearchableDictionary\\app\\src\\main\\res\\xml\\searchable_recent.xml"
+    },
+    {
+        "merged": "E:\\SearchableDictionary\\app\\build\\intermediates\\res\\merged\\debug\\xml\\searchable.xml",
+        "source": "E:\\SearchableDictionary\\app\\src\\main\\res\\xml\\searchable.xml"
+    },
+    {
+        "merged": "E:\\SearchableDictionary\\app\\build\\intermediates\\res\\merged\\debug\\xml\\searchable_custom_adapter.xml",
+        "source": "E:\\SearchableDictionary\\app\\src\\main\\res\\xml\\searchable_custom_adapter.xml"
+    }
+]

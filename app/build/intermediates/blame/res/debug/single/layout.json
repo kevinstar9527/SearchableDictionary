@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\SearchableDictionary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\word.xml",
+        "source": "E:\\SearchableDictionary\\app\\src\\main\\res\\layout\\word.xml"
+    },
+    {
+        "merged": "E:\\SearchableDictionary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
+        "source": "E:\\SearchableDictionary\\app\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "E:\\SearchableDictionary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_recent_suggestion.xml",
+        "source": "E:\\SearchableDictionary\\app\\src\\main\\res\\layout\\activity_recent_suggestion.xml"
+    },
+    {
+        "merged": "E:\\SearchableDictionary\\app\\build\\intermediates\\res\\merged\\debug\\layout\\result.xml",
+        "source": "E:\\SearchableDictionary\\app\\src\\main\\res\\layout\\result.xml"
+    }
+]

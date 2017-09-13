@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\androidstudiosdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="G:\SearchableDictionary\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0_523fca5ba6c3547c3837f537cbf9a04bd865f69b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="G:\SearchableDictionary\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\jars\libs\internal_impl-21.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="G:\SearchableDictionary\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0_670e6b5c56b705fb875fc2eeb41fc1a3c8cd2677.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="G:\SearchableDictionary\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="G:\SearchableDictionary\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-21.0.0_db41a87a3e0b185253b906d0b2fc5129494df05f.jar" />
+    </item>
+
+</items>

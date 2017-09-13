@@ -1,0 +1,103 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:19:1-88:12
+	package
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:20:5-49
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:22:5-30
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+	android:versionCode
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:21:5-28
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:19:11-69
+uses-sdk
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:support-v4:21.0.0] C:\Users\Administrator\.android\build-cache\a6e50ecaceeee452ccba1f17999f27ce15d79b69\output\AndroidManifest.xml:15:5-42
+	android:targetSdkVersion
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:26:9-38
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:25:9-34
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+		INJECTED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml
+application
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:28:5-86:19
+MERGED from [com.android.support:support-v4:21.0.0] C:\Users\Administrator\.android\build-cache\a6e50ecaceeee452ccba1f17999f27ce15d79b69\output\AndroidManifest.xml:16:5-19
+	android:label
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:30:9-41
+	android:icon
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:29:9-47
+activity#com.example.android.searchabledict.custom_suggestions.SearchableDictionary
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:33:9-36:20
+	android:launchMode
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:35:13-43
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:34:13-68
+activity#com.example.android.searchabledict.custom_suggestions.WordActivity
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:39:9-50:20
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:39:19-66
+intent-filter#android.intent.action.SEARCH
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:41:13-44:29
+action#android.intent.action.SEARCH
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:42:17-71
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:42:25-68
+meta-data#android.app.searchable
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:47:13-49:54
+	android:resource
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:49:17-51
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:48:17-54
+activity#com.example.android.searchabledict.recent_history.MyRecentActivity
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:51:9-52:63
+	android:launchMode
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:52:13-43
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:51:19-66
+activity#com.example.android.searchabledict.github_dist_searchview.SearchActivity
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:53:9-67:20
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:53:19-72
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:54:13-58:29
+action#android.intent.action.MAIN
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:55:17-69
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:55:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:57:17-77
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:57:27-74
+provider#com.example.android.searchabledict.recent_history.MySuggestionsProvider
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:69:9-71:67
+	android:authorities
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:70:13-67
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:71:13-65
+provider#com.example.android.searchabledict.DictionaryProvider
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:74:9-77:38
+	android:authorities
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:76:13-88
+	android:exported
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:77:13-36
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:75:13-47
+provider#com.example.android.searchabledict.github_dist_searchview.SearchProvider
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:78:9-80:68
+	android:authorities
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:79:13-107
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:80:13-66
+meta-data#android.app.default_searchable
+ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:83:9-85:53
+	android:value
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:85:13-50
+	android:name
+		ADDED from E:\SearchableDictionary\app\src\main\AndroidManifest.xml:84:13-58
